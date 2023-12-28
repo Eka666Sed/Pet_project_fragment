@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@android:color/holo_green_light"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    tools:context=".NestedFragmentB">
+
+    <TextView
+        style="@style/InfoText"
+        android:text="Это Nested FragmentB!"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:text="Открыть NestedFragmentA"
+        android:textAllCaps="false"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
