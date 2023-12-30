@@ -8,6 +8,7 @@
     tools:context=".FragmentA">
 
     <TextView
+        android:id="@+id/song_text"
         style="@style/InfoText"
         android:text="Это FragmentA :)" />
 

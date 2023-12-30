@@ -3,7 +3,10 @@ package com.yandexpracticum.pet_project_fragment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),
+    SongNameProvider {
+        override fun getSongName(): String = "Loboda"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -14,7 +17,7 @@ class MainActivity : AppCompatActivity() {
              * вложенными фрагментами.
              */
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, FragmentA())
+                .add(R.id.fragment_container, FragmentA.getInstance(getSongName()))
                 .commit()
         }
     }

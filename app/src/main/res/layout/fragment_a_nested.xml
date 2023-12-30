@@ -9,6 +9,7 @@
     tools:context=".NestedFragmentA">
 
     <TextView
+        android:id="@+id/song_text"
         style="@style/InfoText"
         android:text="Это Nested FragmentA!"/>
 
