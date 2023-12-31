@@ -3,13 +3,12 @@ package com.yandexpracticum.pet_project_fragment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity(),
+class MainActivity : AppCompatActivity(R.layout.activity_main),
     SongNameProvider {
-        override fun getSongName(): String = "Loboda"
+        override fun getSongName(): String = "Jungle - Casio"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
             /**

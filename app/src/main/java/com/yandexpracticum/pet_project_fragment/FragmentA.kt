@@ -1,7 +1,6 @@
 package com.yandexpracticum.pet_project_fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import androidx.core.os.bundleOf
 import com.yandexpracticum.pet_project_fragment.databinding.FragmentABinding
 
 // Родительский класс, в который мы будем запихивать вложенные классы NestedFragmentA и NestedFragmentB.
-class FragmentA : BindingFragment<FragmentABinding>() {
+class FragmentA : BindingFragment<FragmentABinding>(), SelectPage {
 
     override fun createBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentABinding {
         return FragmentABinding.inflate(inflater, container, false)
@@ -22,10 +21,13 @@ class FragmentA : BindingFragment<FragmentABinding>() {
         binding.songText.text = requireArguments().getString(SONG_NAME_KEY)
             .plus(other = " | Parent")
 
-        // Добавление первого вложенного фрагмента
-        childFragmentManager.beginTransaction()
-            .add(R.id.fragment_child_container, NestedFragmentA())
-            .commit()
+        // Таким образом происходит установка адаптера нашему ViewPager
+        val adapter = PagerAdapter(hostFragment = this)
+        binding.pager.adapter = adapter
+    }
+
+    override fun navigateTo(page: Int) {
+        binding.pager.currentItem = page
     }
 
     companion object {

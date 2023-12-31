@@ -31,9 +31,7 @@ class NestedFragmentB : BindingFragment<FragmentBNestedBinding>() {
          * другой
          */
         binding.button.setOnClickListener {
-            parentFragmentManager.commit {
-                replace(R.id.fragment_child_container, NestedFragmentA())
-            }
+            (parentFragment as? SelectPage)?.navigateTo(page = 0)
         }
     }
 }
